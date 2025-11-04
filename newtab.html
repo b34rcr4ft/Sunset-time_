@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sunset Time</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .container {
+      text-align: center;
+      padding: 40px;
+      max-width: 800px;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    .time-display {
+      font-size: 120px;
+      font-weight: 700;
+      margin: 40px 0;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .sunset-label {
+      font-size: 28px;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+    .location {
+      font-size: 18px;
+      opacity: 0.8;
+      margin-top: 30px;
+    }
+    #status {
+      font-size: 24px;
+      opacity: 0.9;
+    }
+    .error {
+      color: #ffcccc;
+    }
+    button {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 10px;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .emoji {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+    .current-time {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 18px;
+      opacity: 0.8;
+    }
+    .footer {
+      position: absolute;
+      bottom: 30px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+    .location-input {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      border-radius: 25px;
+      padding: 12px 20px;
+      color: white;
+      font-size: 16px;
+      width: 300px;
+      text-align: center;
+      margin: 20px auto;
+      display: block;
+    }
+    .location-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .location-input:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    .setup-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .button-group {
+      margin-top: 20px;
+    }
+    .small-text {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="current-time" id="current-time"></div>
+  
+  <div class="container">
+    <div class="emoji">🌅</div>
+    <h1>Today's Sunset</h1>
+    
+    <div id="status">Loading...</div>
+    
+    <div id="setup" style="display:none;">
+      <div class="setup-container">
+        <p style="font-size: 18px; margin-bottom: 20px;">Choose how to get your location:</p>
+        <button id="auto-location">Use My Current Location</button>
+        <div class="small-text">Or enter your city manually:</div>
+        <input type="text" id="city-input" class="location-input" placeholder="Enter city name (e.g., San Francisco)">
+        <button id="manual-location">Set Location</button>
+      </div>
+    </div>
+    
+    <div id="sunset-display" style="display:none;">
+      <div class="sunset-label">Sunset at</div>
+      <div class="time-display" id="sunset-time"></div>
+      <div class="location" id="location"></div>
+      <div class="button-group">
+        <button id="refresh">Refresh</button>
+        <button id="change-location">Change Location</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">New tab sunset tracker</div>
+  
+  <script src="newtab.js"></script>
+</body>
+</html>

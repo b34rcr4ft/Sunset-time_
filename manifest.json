@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Sunset Time",
+  "version": "1.0",
+  "description": "Shows the exact sunset time for your location today",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.sunrise-sunset.org/*",
+    "https://nominatim.openstreetmap.org/*"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
